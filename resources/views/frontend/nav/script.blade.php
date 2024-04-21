@@ -11,10 +11,3 @@
 <!-- Custom JavaScript -->
 <script src="{{ asset('js/animate.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
-
-<script>
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-        event.preventDefault();
-        $(this).ekkoLightbox();
-    });
-</script>

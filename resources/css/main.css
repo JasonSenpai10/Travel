@@ -2157,22 +2157,6 @@ footer .img-thumbnail {
     .blog-single {
         padding-bottom: 100px;
     }
-
-    #specific-row {
-        margin-top: 30px;
-    }
-
-    .bg-dark,
-    .bg-light {
-        /* Add specific styles for background colors */
-        background-color: #343a40;
-        /* Dark background color */
-    }
-
-    .bg-light {
-        color: #000;
-        /* Change text color to black for light background */
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -2516,16 +2500,6 @@ footer .img-thumbnail {
     .blog-single figure .figure-caption span {
         font-size: 14px;
     }
-
-    #specific-row {
-        margin-top: 25px;
-    }
-
-    .bg-dark,
-    .bg-light {
-        /* Adjust background styles for medium screens */
-        padding: 20px;
-    }
 }
 
 @media screen and (max-width: 425px) {
@@ -2779,16 +2753,6 @@ footer .img-thumbnail {
     .blog-single .post strong {
         font-size: 18px;
     }
-
-    #specific-row {
-        margin-top: 15px;
-    }
-
-    .bg-dark,
-    .bg-light {
-        /* Adjust background styles for small screens */
-        padding: 15px;
-    }
 }
 
 @media screen and (max-width: 375px) {
@@ -2860,15 +2824,5 @@ footer .img-thumbnail {
 
     .blog-single h2 {
         font-size: 22px;
-    }
-
-    #specific-row {
-        margin-top: 10px;
-    }
-
-    .bg-dark,
-    .bg-light {
-        /* Further adjust background styles for extra small screens */
-        padding: 10px;
     }
 }

@@ -2,12 +2,13 @@
       <section class="footer-top">
           <!--Container-->
           <div class="container">
-              <h2>My Flickr Feed</h2>
+              <h2>The Traveller</h2>
               <div class="row text-center text-lg-left">
                   @foreach ($photograph as $pht)
                       <div class="col-lg-2 col-md-4 col-xs-6">
-                          <a href="#" class="d-block h-100">
-                              <img class="img-fluid img-thumbnail" src="{{ $pht->getFirstMediaUrl() }}" alt="">
+                          <a href="{{ route('froblog') }}" class="d-block h-100">
+                              <img class="img-fluid img-thumbnail" src="{{ $pht->getFirstMediaUrl() }}" alt=""
+                                  style="margin-bottom: 15px;">
                           </a>
                       </div>
                   @endforeach
@@ -21,17 +22,13 @@
               <div class="row">
                   <div class="col-md-12">
                       <ul>
-                          <li><a href="index.html">Home</a></li>
+                          <li><a href="{{ route('froindex') }}">Home</a></li>
                           <li class="hidden">/</li>
-                          <li><a href="about.html">About-us</a></li>
+                          <li><a href="{{ route('froabout') }}">About</a></li>
                           <li class="hidden">/</li>
-                          <li><a href="mystories.html">My stories</a></li>
-                          <li class="hidden">/</li>
-                          <li><a href="destinations.html">Destinations</a></li>
-                          <li class="hidden">/</li>
-                          <li><a href="gallery.html">Gallery</a></li>
-                          <li class="hidden">/</li>
-                          <li><a href="contact.html">Contact</a></li>
+                          <li><a href="{{ route('froblog') }}">My stories</a></li>
+
+
                       </ul>
                   </div>
                   <div class="col-md-12">

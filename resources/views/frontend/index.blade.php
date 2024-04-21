@@ -43,7 +43,7 @@
                     <div class="row">
                         @foreach ($photograph as $pht)
                             <a href="{{ $pht->getFirstMediaUrl() }}" data-toggle="lightbox" data-gallery="example-gallery"
-                                class="col-xl-6 col-md-4 box-1">
+                                class="col-xl-4 col-md-4 box-1">
                                 <img src="{{ $pht->getFirstMediaUrl() }}" class="img-fluid">
                                 <div class="overlay">
 
@@ -62,91 +62,32 @@
         </div>
     </section>
 
+
     <section class="blog">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 left-side">
                     <h2>My Recent Blog Posts</h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <figure class="figure">
-                                <a href="single.html"><img src="images/banner-image-1.jpg" class="figure-img img-fluid"
-                                        alt="A generic square placeholder image with rounded corners in a figure."></a>
-                                <figcaption class="figure-caption"> <img src="images/comment.png"
-                                        alt=""><span>45</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-md-6">
-                            <h4><a href="single.html">Super and up for the comming model in shoot at newyork USA
-                                    morning..</a></h4>
-                            <div class="btn-group">
-                                <a href="single.html" class="btn btn-danger">Ladakh, India</a>
-                                <button class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i> 345</button>
+                    @foreach ($vlog as $vlo)
+                        <div class="row">
+                            <div class="col-md-6">
+                                <figure class="figure">
+                                    <a href="{{ route('content', $vlo->id) }}"><img src="{{ $vlo->getFirstMediaUrl() }}"
+                                            class="figure-img img-fluid" style="width: auto;"></a>
+
+                                </figure>
                             </div>
-                            <p>Posted on : 23.05.2016</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <figure class="figure">
-                                <a href="single.html"><img src="images/banner-image-2.jpg" class="figure-img img-fluid"
-                                        alt="A generic square placeholder image with rounded corners in a figure."></a>
-                                <figcaption class="figure-caption"> <img src="images/comment.png"
-                                        alt=""><span>45</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-md-6">
-                            <h4><a href="single.html">Super and up for the comming model in shoot at newyork USA
-                                    morning..</a></h4>
-                            <div class="btn-group">
-                                <a href="single.html" class="btn btn-danger">Ladakh, India</a>
-                                <button class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i> 345</button>
+                            <div class="col-md-6">
+                                <h4><a href="{{ route('content', $vlo->id) }}">{{ $vlo->title }}</a></h4>
+                                <div class="btn-group">
+                                    <a href="single.html" class="btn btn-danger">{{ $vlo->location->location }}</a>
+
+                                </div>
+                                <p>Posted on : {{ $vlo->date }}</p>
                             </div>
-                            <p>Posted on : 23.05.2016</p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <figure class="figure">
-                                <a href="single.html"><img src="images/banner-image-3.jpg" class="figure-img img-fluid"
-                                        alt="A generic square placeholder image with rounded corners in a figure."></a>
-                                <figcaption class="figure-caption"> <img src="images/comment.png"
-                                        alt=""><span>45</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-md-6">
-                            <h4><a href="single.html">Super and up for the comming model in shoot at newyork USA
-                                    morning..</a></h4>
-                            <div class="btn-group">
-                                <a href="single.html" class="btn btn-danger">Ladakh, India</a>
-                                <button class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i> 345</button>
-                            </div>
-                            <p>Posted on : 23.05.2016</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <figure class="figure">
-                                <a href="single.html"><img src="images/banner-image-4.jpg" class="figure-img img-fluid"
-                                        alt="A generic square placeholder image with rounded corners in a figure."></a>
-                                <figcaption class="figure-caption"><img src="images/comment.png"
-                                        alt=""><span>45</span>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-md-6">
-                            <h4><a href="single.html">Super and up for the comming model in shoot at newyork USA
-                                    morning..</a></h4>
-                            <div class="btn-group">
-                                <a href="single.html" class="btn btn-danger">Ladakh, India</a>
-                                <button class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i> 345</button>
-                            </div>
-                            <p>Posted on : 23.05.2016</p>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="row">
@@ -243,26 +184,6 @@
                     }
                 });
             });
-        });
-    </script>
-    <a href="javascript:" id="return-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="js/animate.js"></script>
-    <script src="js/custom.js"></script>
-    <script>
-        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-            event.preventDefault();
-            $(this).ekkoLightbox();
         });
     </script>
 @endsection

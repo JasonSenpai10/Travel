@@ -306,11 +306,7 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        
         
         ['header' => 'account_settings'],
         [
@@ -371,10 +367,54 @@ return [
                 
             ],
         ],
+        
         [
             'text' => 'About',
-            'url'  => 'about',
             'icon' => 'fas fa-fw fa-lock',
+            'submenu' => [
+                [
+                    'icon_color' => 'red',
+                    'text' => 'Intro',
+                    'url'  => '/about',
+                ],
+                [
+                    'icon_color' => 'red',
+                    'text' => 'Education',
+                    'url'  => '/education',
+                ],
+                [
+                    'icon_color' => 'red',
+                    'text' => 'Experience',
+                    'url'  => '/experience',
+                ],
+                [
+                    'icon_color' => 'red',
+                    'text' => 'Skill',
+                    'url'  => '/skill',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Blog',
+            'icon' => 'fas fa-fw fa-lock',
+            'submenu' => [
+                [
+                    'icon_color' => 'red',
+                    'text' => 'Location',
+                    'url'  => '/location',
+                ],
+                [
+                    'icon_color' => 'red',
+                    'text' => 'Vlog',
+                    'url'  => '/vlog',
+                ],
+                [
+                    'icon_color' => 'cyan',
+                    'text' => 'Image',
+                    'url'  => '/img',
+                ],
+                
+            ],
         ],
         
     ],

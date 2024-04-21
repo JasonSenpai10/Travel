@@ -1,63 +1,130 @@
 @extends('frontend.layout')
 @section('frontend')
+    <style>
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animated-text {
+            animation: slideInFromLeft 3s ease-in-out;
+        }
+
+        .row {
+            animation: fadeIn 5s ease-in-out;
+        }
+    </style>
+
+
     <!-- Blog-Section -->
     <div class="about-page">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>About Us</h3>
-                    <figure class="figure">
-                        <img src="images/banner-image-1.jpg" alt="about">
-                    </figure>
-                </div>
-                <div class="col-sm-12">
-                    <p>Welcome to my <a href="single.html">personal travel</a> blog, i love to travel the globe, i have been
-                        to so many beautiful places and met interesting people the world, this website is my mirror of life.
-                        <br> Welcome to my personal travel blog, i love to travel the globe, i have been to so many
-                        beautiful Welcome to my personal travel blog, i love to travel the globe, i have been to so many
-                        beautiful places and met interes Welcome to my personal travel blog, i love to travel the globe, i
-                        have been to so many beautiful places and met interesting people around the world, this website is
-                        my mirror of life.
-                    </p>
+            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+                <div class="container">
+                    <div class="row">
+                        @foreach ($about as $abt)
+                            <div class="col-md-6">
+                                <div class="container">
+                                    <img src="{{ $abt->getFirstMediaUrl() }}" alt="" style="max-width: 100%;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-10 p-lg-5 mx-auto my-5">
+                                    <h1 class="display-4 font-weight-normal animated-text">Jason K C</h1>
+                                    <p class="lead font-weight-normal animated-text">{{ $abt->about }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-                    <p>Welcome to my personal travel blog, i love to travel the globe, i have been to so many beautiful...e
-                        world, this website is my mirror of life. <br> Welcome to my personal travel blog, i love to travel
-                        the globe, i have been to so many beautiful...</p>
-                    <p> Welcome to my personal travel blog, i love to travel the globe, i have been to so many beautiful
-                        places and met interesting people the world, this website is my mirror of life. <br> Welcome to my
-                        personal travel blog, i love to travel the globe, i have been to so many travel the globe, i have
-                        been to so many beautiful places and met interesting people around the world, this website is my
-                        mirror of life.
-                    </p>
-                    <p>Welcome to my <a href="single.html">personal travel</a> blog, i love to travel the globe, i have been
-                        to so many beautiful...e world, this website is my mirror of life. <br> Welcome to my personal
-                        travel blog, i love to travel the globe, i have been to so many beautiful...</p>
+
                 </div>
             </div>
+
+
+            <div class="container-fluid">
+                <div id="specific-row" class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12" style="margin-bottom: 45px;">
+                        <div class="bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                            <div class="my-3 py-3">
+                                <h2 class="display-5">Education</h2>
+                                @foreach ($education as $edu)
+                                    <ul>
+                                        <li>
+                                            <span style='font-size:20px;'>&#128321; </span> {{ $edu->desc }}
+                                        </li>
+                                        <br>
+                                        {{ $edu->school }}
+                                    </ul>
+                                @endforeach
+                            </div>
+                            <div class="bg-light shadow-sm mx-auto"
+                                style="width: 80%; height: 200px; border-radius: 21px 21px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 col-sm-12" style="margin-bottom: 45px;">
+                        <div class="bg-light pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                            <div class="my-3 p-3">
+                                <h2 class="display-5">Experience</h2>
+                                @foreach ($experience as $exp)
+                                    <ul>
+                                        <li>
+                                            <span style='font-size:20px;'>&#128321; </span> {{ $exp->desc }}
+                                        </li>
+                                        <br>
+                                        {{ $exp->inst }}
+                                    </ul>
+                                @endforeach
+                            </div>
+                            <div class="bg-dark shadow-sm mx-auto"
+                                style="width: 80%; height: 200px; border-radius: 21px 21px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                            <div class="my-3 p-3">
+                                <h2 class="display-5">Skills</h2>
+                                @foreach ($skill as $sk)
+                                    <ul>
+                                        <li>
+                                            <span style='font-size:20px;'>&#128321; </span> {{ $sk->desc }}
+                                        </li>
+                                    </ul>
+                                @endforeach
+                            </div>
+                            <div class="bg-light shadow-sm mx-auto"
+                                style="width: 80%; height: 200px; border-radius: 21px 21px 0 0;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
+
     </div>
 
 
-    <!-- Return to Top -->
-    <a href="javascript:" id="return-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="js/animate.js"></script>
-    <script src="js/custom.js"></script>
-    <script>
-        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-            event.preventDefault();
-            $(this).ekkoLightbox();
-        });
-    </script>
     @extends('frontend.nav.script')
 @endsection
